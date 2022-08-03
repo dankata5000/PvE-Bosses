@@ -1,0 +1,16 @@
+name: PvEbosses
+version: '${project.version}'
+main: me.thegoldenmine.pvebosses.pvebosses.PvEbosses
+api-version: 1.14
+authors: [ TheGoldenMine ]
+description: Five strong and powerful PvE bosses that can be customise.
+website: https://www.spigotmc.org/members/thegoldenmine.1437483/
+commands:
+  pveboss:
+    description: You can spawn PvE Bosses
+    aliases: [pve]
+    usage: /pveboss [boss]
+permissions:
+  pveboss.spawn:
+    description: You can use /pveboss
+    default: op
