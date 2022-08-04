@@ -21,6 +21,11 @@ public class CmdTabComplete implements TabCompleter {
                     SubCommands.add("Wolf");
                     SubCommands.add("Baby-Zombie");
                     SubCommands.add("Baby-Wolf");
+                    SubCommands.add("Creeper");
+                    SubCommands.add("Spider");
+                    SubCommands.add("Witch");
+                    SubCommands.add("Enderman");
+                    SubCommands.add("Slime");
                 }
             }
             return SubCommands;

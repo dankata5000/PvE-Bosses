@@ -74,6 +74,52 @@ public class Config {
             setBossInt("BabyWolf_Thunder_Damage", 3);
             setBossInt("BabyWolf_Health", 2048);
 
+            // Creeper
+            setBossBoolean("Creeper_Jump", true);
+            setBossStr("Creeper_Name", "§a§lCaBoom");
+            setBossInt("Creeper_Explosion_Damage", 3);
+            setBossBoolean("Creeper_Spawn_Explosions", true);
+            setBossInt("Creeper_Health", 1000);
+
+            // Slime
+            setBossBoolean("Slime_Jump", true);
+            setBossStr("Slime_Name", "§a§lMagi");
+            setBossInt("Slime_Health", 1000);
+            setBossInt("Slime_Damage", 3);
+            setBossBoolean("Slime_Spawn_Explosion", true);
+            setBossInt("Slime_Explosion_Damage", 2);
+
+            // Spider
+            setBossBoolean("Spider_Jump", true);
+            setBossStr("Spider_Name", "§d§lSpidy");
+            setBossInt("Spider_Damage", 5);
+            setBossInt("Spider_Health", 1000);
+            setBossBoolean("Spider_Spawn_Minions", true);
+            setBossInt("Spider_Minions", 5);
+            setBossInt("Spider_Minion_Health", 100);
+            setBossInt("Spider_Minion_Damage", 3);
+
+            // Enderman
+            setBossBoolean("Enderman_Jump", true);
+            setBossStr("Enderman_Name", "§5§lEndy");
+            setBossInt("Enderman_Damage", 5);
+            setBossInt("Enderman_Health", 1000);
+            setBossBoolean("Enderman_Spawn_Minions", true);
+            setBossInt("Enderman_Minions", 5);
+            setBossInt("Enderman_Minion_Health", 100);
+            setBossInt("Enderman_Minion_Damage", 3);
+
+            // Witch
+            setBossBoolean("Witch_Spawn_Explosion", true);
+            setBossStr("Witch_Name", "§5§lShely");
+            setBossInt("Witch_Explosion_Damage", 3);
+            setBossInt("Witch_Health", 1000);
+            setBossBoolean("Witch_Spawn_Minions", true);
+            setBossInt("Witch_Minions", 5);
+            setBossInt("Witch_Minion_Health", 100);
+            setBossInt("Witch_Minion_Explosion_Damage", 2);
+            setBossBoolean("Witch_Minion_Spawn_Explosion", true);
+
             // Custom Deaths
             // baby wolf
             setBossInt("BabyWolf_XP" ,30);
@@ -95,6 +141,36 @@ public class Config {
             setBossInt("Zombie_XP" ,30);
             setBossBoolean("Zombie_Drop_XP", true);
             setBossBoolean("Zombie_Drop_Items", false);
+
+            // Creeper
+            setBossInt("Creeper_XP" ,30);
+            setBossBoolean("Creeper_Drop_XP", true);
+            setBossBoolean("Creeper_Drop_Items", false);
+
+            // Spider
+            setBossInt("Spider_XP" ,30);
+            setBossBoolean("Creeper_Drop_XP", true);
+            setBossBoolean("Creeper_Drop_Items", false);
+
+            // Witch
+            setBossInt("Witch_XP" ,30);
+            setBossBoolean("Witch_Drop_XP", true);
+            setBossBoolean("Witch_Drop_Items", false);
+
+            // Enderman
+            setBossInt("Enderman_XP" ,30);
+            setBossBoolean("Enderman_Drop_XP", true);
+            setBossBoolean("Enderman_Drop_Items", false);
+
+            // Slime
+            setBossInt("Slime_XP" ,30);
+            setBossBoolean("Slime_Drop_XP", true);
+            setBossBoolean("Slime_Drop_Items", false);
+
+            // respawn
+            setBossBoolean("enable_respawn", true);
+            setBossInt("respawn_cooldown_seconds", 10);
+            setBossInt("number_of_respawn_points",0);
         }
         if (!dataFolder.exists()) {
             if (dataFolder.mkdir()) {

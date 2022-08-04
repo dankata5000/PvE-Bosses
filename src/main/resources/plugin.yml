@@ -10,7 +10,14 @@ commands:
     description: You can spawn PvE Bosses
     aliases: [pve]
     usage: /pveboss [boss]
+  pveboss-set-respawn-point:
+    description: You can set the respawn point of the Bosses. The bosses will be spawed there if you turn on the respawn to true. The Bosses will respawn every 10 seconds.
+    usage: /pveboss-set-respawn-point
+    aliases: [pve-set]
 permissions:
   pveboss.spawn:
     description: You can use /pveboss
+    default: op
+  pveboss.setrespawn:
+    description: You can set the respawn point with this permission
     default: op

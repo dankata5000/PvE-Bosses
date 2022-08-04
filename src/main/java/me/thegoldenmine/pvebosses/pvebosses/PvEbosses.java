@@ -1,18 +1,27 @@
 package me.thegoldenmine.pvebosses.pvebosses;
 
 import me.thegoldenmine.pvebosses.pvebosses.Cmds.CmdTabComplete;
-import me.thegoldenmine.pvebosses.pvebosses.Cmds.SpawnBoss;
+import me.thegoldenmine.pvebosses.pvebosses.Cmds.SetRespawnPoint;
+import me.thegoldenmine.pvebosses.pvebosses.Cmds.SpawnBossCmd;
 import me.thegoldenmine.pvebosses.pvebosses.CoolDowns.PowerCoolDown;
 import me.thegoldenmine.pvebosses.pvebosses.Listeners.BossListener;
-import org.bukkit.Bukkit;
+import org.bukkit.*;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PvEbosses extends JavaPlugin {
     public PvEbosses pvebosses;
     public Config config;
     public PowerCoolDown powerCoolDown;
+
+    public SpawnBosses spawnBosses;
+
+    public List<Location> respawnLocations = new ArrayList<>();
+    public List<LivingEntity> deadBosses = new ArrayList<>();
 
     @Override
     public void onEnable() {
@@ -67,9 +76,17 @@ public class PvEbosses extends JavaPlugin {
             }
             Items.init();
             powerCoolDown = new PowerCoolDown(this);
-            getCommand("pveboss").setExecutor(new SpawnBoss(this));
+            spawnBosses = new SpawnBosses(this);
+            getCommand("pveboss").setExecutor(new SpawnBossCmd(this));
+            getCommand("pveboss-set-respawn-point").setExecutor(new SetRespawnPoint(this));
             getCommand("pveboss").setTabCompleter(new CmdTabComplete());
             getServer().getPluginManager().registerEvents(new BossListener(this), this);
+            for (int i = 0; i <= config.getBossInt("number_of_respawn_points"); i++) {
+                Location loc = StringToLocation(config.getBossStr(i+"_respawn_point"));
+                if (loc != null) {
+                    respawnLocations.add(loc);
+                }
+            }
         } else {
             getLogger().severe("Failed to setup PvE Bosses");
             getLogger().severe("Your server version is not compatible with this plugin!");
@@ -80,6 +97,32 @@ public class PvEbosses extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+        respawnLocations.clear();
+        deadBosses.clear();
         System.out.println("<--{ Shutting Down }-->");
+    }
+
+    public String LocationToString(final Location loc) {
+        if (loc == null) {
+            return "null";
+        }
+        return loc.getWorld().getName() + ":" + loc.getBlockX() + ":" + loc.getBlockY() + ":" + loc.getBlockZ()+":"+loc.getYaw()+":"+loc.getPitch();
+    }
+
+    public Location StringToLocation(final String str) {
+        if (str == null || str.trim().equals("")) {
+            return null;
+        }
+        final String[] parts = str.split(":");
+        if (parts.length == 6) {
+            final World w = Bukkit.getServer().getWorld(parts[0]);
+            final int x = Integer.parseInt(parts[1]);
+            final int y = Integer.parseInt(parts[2]);
+            final int z = Integer.parseInt(parts[3]);
+            final float yaw = Float.parseFloat(parts[4]);
+            final float pit = Float.parseFloat(parts[5]);
+            return new Location(w, x, y, z, yaw, pit);
+        }
+        return null;
     }
 }
