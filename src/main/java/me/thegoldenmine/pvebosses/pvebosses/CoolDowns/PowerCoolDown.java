@@ -60,9 +60,37 @@ public class PowerCoolDown {
                             plugin.deadBosses.clear();
                         } else {
                             while (RespawnLoc == null) {
-                                randomRespawnIndex = new Random().nextInt(plugin.respawnLocations.size()) - 1;
+                                randomRespawnIndex = new Random().nextInt(plugin.respawnLocations.size());
                                 RespawnLoc = plugin.respawnLocations.get(randomRespawnIndex);
                             }
+                            for (LivingEntity entity : plugin.deadBosses) {
+                                if (entity != null) {
+                                    NamespacedKey nameKey = new NamespacedKey(plugin, "boss");
+                                    PersistentDataContainer dataEntity = entity.getPersistentDataContainer();
+                                    if (dataEntity.has(nameKey, PersistentDataType.STRING)) {
+                                        if (entity instanceof Wolf && dataEntity.get(nameKey, PersistentDataType.STRING).equals("BABY")) {
+                                            plugin.spawnBosses.BabyWolf(RespawnLoc);
+                                        } else if (entity instanceof Wolf && dataEntity.get(nameKey, PersistentDataType.STRING).equals("BOSS")) {
+                                            plugin.spawnBosses.Wolf(RespawnLoc);
+                                        } else if (entity instanceof Zombie && dataEntity.get(nameKey, PersistentDataType.STRING).equals("BABY")) {
+                                            plugin.spawnBosses.BabyZombie(RespawnLoc);
+                                        } else if (entity instanceof Zombie && dataEntity.get(nameKey, PersistentDataType.STRING).equals("BOSS")) {
+                                            plugin.spawnBosses.Zombie(RespawnLoc);
+                                        } else if (entity instanceof Creeper && dataEntity.get(nameKey, PersistentDataType.STRING).equals("BOSS")) {
+                                            plugin.spawnBosses.Creeper(RespawnLoc);
+                                        } else if (entity instanceof Enderman && dataEntity.get(nameKey, PersistentDataType.STRING).equals("BOSS")) {
+                                            plugin.spawnBosses.Enderman(RespawnLoc);
+                                        } else if (entity instanceof Witch && dataEntity.get(nameKey, PersistentDataType.STRING).equals("BOSS")) {
+                                            plugin.spawnBosses.Witch(RespawnLoc);
+                                        } else if (entity instanceof Slime && dataEntity.get(nameKey, PersistentDataType.STRING).equals("BOSS")) {
+                                            plugin.spawnBosses.Slime(RespawnLoc);
+                                        } else if (entity instanceof Spider && dataEntity.get(nameKey, PersistentDataType.STRING).equals("BOSS")) {
+                                            plugin.spawnBosses.Spider(RespawnLoc);
+                                        }
+                                    }
+                                }
+                            }
+                            plugin.deadBosses.clear();
                         }
                     }
                 }
