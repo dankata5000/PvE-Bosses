@@ -36,8 +36,7 @@ public class BossListener implements Listener {
             if (!living.isDead()) {
                 double healthNewDo = living.getHealth() - event.getDamage();
                 int healthNew = (int) healthNewDo;
-                if (healthNew <= 0) {
-                    living.setHealth(0);
+                if (healthNew <= 0 || event.isCancelled()) {
                     return;
                 }
                 NamespacedKey name = new NamespacedKey(plugin, "boss");
