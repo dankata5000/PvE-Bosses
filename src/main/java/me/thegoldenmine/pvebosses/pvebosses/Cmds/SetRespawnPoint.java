@@ -1,4 +1,4 @@
-package me.thegoldenmine.pvebosses.pvebosses.Cmds;
+package me.thegoldenmine.pvebosses.pvebosses.cmds;
 
 import me.thegoldenmine.pvebosses.pvebosses.PvEbosses;
 import org.bukkit.ChatColor;

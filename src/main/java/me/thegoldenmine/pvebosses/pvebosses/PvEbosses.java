@@ -1,10 +1,11 @@
 package me.thegoldenmine.pvebosses.pvebosses;
 
-import me.thegoldenmine.pvebosses.pvebosses.Cmds.CmdTabComplete;
-import me.thegoldenmine.pvebosses.pvebosses.Cmds.SetRespawnPoint;
-import me.thegoldenmine.pvebosses.pvebosses.Cmds.SpawnBossCmd;
 import me.thegoldenmine.pvebosses.pvebosses.CoolDowns.PowerCoolDown;
 import me.thegoldenmine.pvebosses.pvebosses.Listeners.BossListener;
+import me.thegoldenmine.pvebosses.pvebosses.cmds.CmdTabComplete;
+import me.thegoldenmine.pvebosses.pvebosses.cmds.SetRespawnPoint;
+import me.thegoldenmine.pvebosses.pvebosses.cmds.SpawnBossCmd;
+
 import org.bukkit.*;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.plugin.java.JavaPlugin;

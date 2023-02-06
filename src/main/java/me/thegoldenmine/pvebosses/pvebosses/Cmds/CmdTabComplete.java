@@ -1,4 +1,4 @@
-package me.thegoldenmine.pvebosses.pvebosses.Cmds;
+package me.thegoldenmine.pvebosses.pvebosses.cmds;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;

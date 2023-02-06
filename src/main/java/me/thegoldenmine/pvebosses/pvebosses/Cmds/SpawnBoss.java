@@ -1,4 +1,4 @@
-package me.thegoldenmine.pvebosses.pvebosses.Cmds;
+package me.thegoldenmine.pvebosses.pvebosses.cmds;
 
 import me.thegoldenmine.pvebosses.pvebosses.Items;
 import me.thegoldenmine.pvebosses.pvebosses.PvEbosses;
